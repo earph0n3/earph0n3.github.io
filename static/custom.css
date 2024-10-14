@@ -1,0 +1,88 @@
+/* 字体 */
+@import url(https://chinese-fonts-cdn.deno.dev/packages/hqzmt/dist/Hangeuljaemin4-Regular/result.css);
+@import url(https://chinese-fonts-cdn.deno.dev/packages/lxgwwenkai/dist/LXGWWenKai-Regular/result.css);
+@import url(https://cdn.jsdelivr.net/npm/jetbrains-mono@1.0.6/css/jetbrains-mono.min.css);
+
+/* 一些定义 */
+:root {
+    --rs-color-grey-80:rgba(255, 255, 255, .3);
+    --rs-color-white-t5: rgba(0, 0, 0, 0.3);
+}
+
+/* 顶栏的字体 */
+.wh-header__product-name {
+    font-family: "Hangeuljaemin4.0", serif;
+    font-size: 24px;
+}
+
+/* mermaid简单流程图的背景 */
+html.theme-dark #mermaid .node polygon, html.theme-dark #mermaid .node rect {
+    fill: rgba(0, 0, 0, 0.4);
+    stroke: #81b1db;
+    stroke-width: 1px;
+}
+
+/* 文章内容字体 */
+p {
+    font-family: 'LXGW WenKai';
+}
+
+/* 顶栏按钮字体 */
+.wh-header__download {
+    font-family: 'LXGW WenKai';
+}
+
+/* 标题字体 */
+.title  {
+    font-family: 'LXGW WenKai';
+}
+
+/* 列表字体 */
+.toc-item {
+    font-family: 'LXGW WenKai';
+}
+
+/* 顶栏的背景 */
+div.layout.layout--container.layout--unlimited {
+    background: url("https://s2.loli.net/2024/10/12/tpw8APBRJ9kHjbD.jpg") no-repeat center top;
+    background-size: cover; /* 确保图片始终覆盖整个背景 */
+    background-attachment: fixed; /* 固定背景图片，防止滚动时移动 */
+}
+
+/* 页面背景 */
+body {
+    background: url("https://s2.loli.net/2024/10/12/NiOUJtVQAp3a9Bo.webp") no-repeat;
+    background-size: cover; /* 确保图片始终覆盖整个背景 */
+    background-attachment: fixed; /* 固定背景图片，防止滚动时移动 */
+}
+
+
+/* 取消或淡化背景 */
+.app__footer {
+    background: rgba(0, 0, 0, .3);
+}
+
+.toc-item--highlighted.toc-item--theme-dark {
+    background: rgba(0, 0, 0, 15%);
+}
+
+.layout .toc{
+    background: none;
+}
+
+.table__th {
+    background-color: rgba(0, 0, 0, 50%);
+}
+
+.table__td {
+    background: rgba(0, 0, 0, 15%);
+}
+
+
+.layout--scroll-element {
+    background: none;
+}
+
+.layout--container {
+    background: rgba(0, 0, 0, 10%)
+}

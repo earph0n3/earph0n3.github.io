@@ -1,0 +1,58 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2024-10-14T14:13:55.167807699"><title>基本数据类型 |  earph0n3's doc</title><script type="application/json" id="virtual-toc-data">[{"id":"number","level":0,"title":"数字(number)","anchor":"#number"},{"id":"string","level":0,"title":"字符串(string)","anchor":"#string"},{"id":"list","level":0,"title":"列表(list)","anchor":"#list"},{"id":"tuple","level":0,"title":"元组(Tuple)","anchor":"#tuple"},{"id":"set","level":0,"title":"集合(set)","anchor":"#set"},{"id":"dictionary","level":0,"title":"字典(dictionary)","anchor":"#dictionary"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b419/app.css" rel="stylesheet"><link href="static/custom.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="基本数据类型 |  earph0n3's doc"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content=" earph0n3's doc Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/python-basic-type.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="基本数据类型 |  earph0n3's doc"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/python-basic-type.html#webpage",
+    "url": "writerside-documentation/python-basic-type.html",
+    "name": "基本数据类型 |  earph0n3's doc",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": " earph0n3's doc Help"
+}</script><!-- End Schema.org --></head><body data-id="python-basic-type" data-main-title="基本数据类型" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="python.md|Python///python-basic.md|python基础"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3> earph0n3's doc  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="python-basic-type" id="python-basic-type.md">基本数据类型</h1><p id="z2h6x8q_3">python的数据类型和其他的语言的数据类型区别不大,主要分为几种:</p><section class="chapter"><h2 id="number" data-toc="number">数字(number)</h2><p id="z2h6x8q_10">数字类型在python中分为<code class="code" id="z2h6x8q_15">整型(int)</code>, <code class="code" id="z2h6x8q_16">布尔型(bool)</code>, <code class="code" id="z2h6x8q_17">浮点型(float)</code>, <code class="code" id="z2h6x8q_18">复数型(complex)</code></p><p id="z2h6x8q_11">其中布尔型包含<code class="code" id="z2h6x8q_19">True</code>和<code class="code" id="z2h6x8q_20">False</code> ,其在类型上其实是int的子类,在数值上<code class="code" id="z2h6x8q_21">True=1</code>, <code class="code" id="z2h6x8q_22">False=0</code></p><p id="z2h6x8q_12">另外一些例子如下:</p><div class="table-wrapper"><table class="wide" id="z2h6x8q_13"><thead><tr class="ijRowHead" id="z2h6x8q_23"><th id="z2h6x8q_31"><p>int</p></th><th id="z2h6x8q_32"><p>float</p></th><th id="z2h6x8q_33"><p>complex</p></th></tr></thead><tbody><tr id="z2h6x8q_24"><td id="z2h6x8q_34"><p>10</p></td><td id="z2h6x8q_35"><p>0.0</p></td><td id="z2h6x8q_36"><p>3.14j</p></td></tr><tr id="z2h6x8q_25"><td id="z2h6x8q_37"><p>100</p></td><td id="z2h6x8q_38"><p>15.20</p></td><td id="z2h6x8q_39"><p>45.j</p></td></tr><tr id="z2h6x8q_26"><td id="z2h6x8q_40"><p>-786</p></td><td id="z2h6x8q_41"><p>-21.9</p></td><td id="z2h6x8q_42"><p>9.322e-36j</p></td></tr><tr id="z2h6x8q_27"><td id="z2h6x8q_43"><p>080</p></td><td id="z2h6x8q_44"><p>32.3e+18</p></td><td id="z2h6x8q_45"><p>.876j</p></td></tr><tr id="z2h6x8q_28"><td id="z2h6x8q_46"><p>-0490</p></td><td id="z2h6x8q_47"><p>-90.</p></td><td id="z2h6x8q_48"><p>-.6545+0J</p></td></tr><tr id="z2h6x8q_29"><td id="z2h6x8q_49"><p>-0x260</p></td><td id="z2h6x8q_50"><p>-32.54e100</p></td><td id="z2h6x8q_51"><p>3e+26J</p></td></tr><tr id="z2h6x8q_30"><td id="z2h6x8q_52"><p>0x69</p></td><td id="z2h6x8q_53"><p>70.2E-12</p></td><td id="z2h6x8q_54"><p>4.53e-7j</p></td></tr></tbody></table></div><aside class="prompt" data-type="tip" data-title="" id="z2h6x8q_14"><p id="z2h6x8q_55"><code class="code" id="z2h6x8q_56">long</code>类型只存在于python2中,在python3.x中已经没有了<code class="code" id="z2h6x8q_57">long</code>类型,整型只用<code class="code" id="z2h6x8q_58">int</code></p></aside></section><section class="chapter"><h2 id="string" data-toc="string">字符串(string)</h2><p id="z2h6x8q_59">字符串指的是由<code class="code" id="z2h6x8q_62">数字</code>, <code class="code" id="z2h6x8q_63">字母</code>, <code class="code" id="z2h6x8q_64">下划线</code>组成的一串字符,在python中使用单引号或者双引号包裹,如:</p><div class="code-block" data-lang="python">
+s = &quot;hello world!&quot;
+</div><p id="z2h6x8q_61">这里的s就代表一个字符串<code class="code" id="z2h6x8q_65">hello空格word!</code></p></section><section class="chapter"><h2 id="list" data-toc="list">列表(list)</h2><p id="z2h6x8q_66">python中的列表基本是使用最频繁的数据类型</p><p id="z2h6x8q_67">列表可以完成大多数集合类的数据结构实现,可以包含字符,数字,字符串,同时也支持嵌套(即列表里面包含列表)</p><p id="z2h6x8q_68">列表在python中使用<code class="code" id="z2h6x8q_70">方括号</code>包裹,下面是例子:</p><div class="code-block" data-lang="python">
+# 空列表
+l = []
+# 包含数字的列表
+l = [1, 2, 3, 4]
+# 包含字符的列表
+l = ['a', 'b', 'c', 'd']
+# 包含字符串的列表
+l = ['hello', 'world', '你好', '世界']
+# 嵌套且包含不同类型的列表
+l = [[1, 2, 3], ['a', 'b', 'c'], 'hello', ['你好', '世界']]
+</div></section><section class="chapter"><h2 id="tuple" data-toc="tuple">元组(Tuple)</h2><p id="z2h6x8q_71">元组与列表类似,最大的区别是元组一旦确定后,其中的元素无法再修改,使用<code class="code" id="z2h6x8q_74">小括号</code>包裹</p><p id="z2h6x8q_72">下面是例子:</p><div class="code-block" data-lang="python">
+# 空元组
+t = ()
+# 包含数字的元组
+t = (1, 2, 3, 4)
+# 包含字符的元组
+t = ('a', 'b', 'c', 'd')
+# 包含字符串的元组
+t = ('hello', 'world', '你好', '世界')
+# 嵌套且包含不同类型的元组
+t = ((1, 2, 3), ('a', 'b', 'c'), 'hello', ('你好', '世界'))
+</div></section><section class="chapter"><h2 id="set" data-toc="set">集合(set)</h2><p id="z2h6x8q_75">集合同样与列表类似,但它是一种无序且可变的数据类型</p><p id="z2h6x8q_76">类似数学中的集合,python中的集合只能存储不重复的内容,由<code class="code" id="z2h6x8q_80">大括号</code>包裹</p><p id="z2h6x8q_77">下面是例子:</p><div class="code-block" data-lang="python">
+# 正常创建集合
+set = {1, 2, 3, 'a'}
+
+# 使用set()函数创建
+set = set('hello world')
+# 等同于
+set = {'h', 'e', 'l', 'o', ' ', 'w', 'r', 'd'}
+# 拆分了每一个字符同时去除了重复元素
+</div><aside class="prompt" data-type="tip" data-title="" id="z2h6x8q_79"><p id="z2h6x8q_81">创建空集合时不能像列表一样直接:</p><div class="code-block" data-lang="python">
+set = {}
+</div><p id="z2h6x8q_83">而只能使用set()函数</p><div class="code-block" data-lang="python">
+set = set()
+</div><p id="z2h6x8q_85">因为前者是用来创建空字典的(下一小节)</p></aside></section><section class="chapter"><h2 id="dictionary" data-toc="dictionary">字典(dictionary)</h2><p id="z2h6x8q_86">字典是python中另一个使用频繁的数据类型,由<code class="code" id="z2h6x8q_89">键:值</code>对的形式存储数据,同样使用<code class="code" id="z2h6x8q_90">大括号</code>包裹</p><p id="z2h6x8q_87">下面是例子:</p><div class="code-block" data-lang="python">
+# 空字典
+d = {}
+# 代表一个人的信息的字典
+d = {&quot;姓名&quot;: &quot;李华&quot;, &quot;年龄&quot;: 23}
+</div></section><div class="last-modified">Last modified: 14 十月 2024</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="python-basic.html" class="navigation-links__prev">python基础</a><a href="python-control-statements.html" class="navigation-links__next">控制语句</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b419/app.js"></script></body></html>
