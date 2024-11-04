@@ -1,0 +1,50 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2024-11-04T18:33:26.7581833"><title>re模块 |  earph0n3's doc</title><script type="application/json" id="virtual-toc-data">[{"id":"re-match","level":0,"title":"re.match()","anchor":"#re-match"},{"id":"re-search","level":0,"title":"re.search()","anchor":"#re-search"},{"id":"re-findall","level":0,"title":"re.findall()","anchor":"#re-findall"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b419/app.css" rel="stylesheet"><link href="static/custom.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="re模块 |  earph0n3's doc"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content=" earph0n3's doc Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/python-regularexpression-remodule.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="re模块 |  earph0n3's doc"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/python-regularexpression-remodule.html#webpage",
+    "url": "writerside-documentation/python-regularexpression-remodule.html",
+    "name": "re模块 |  earph0n3's doc",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": " earph0n3's doc Help"
+}</script><!-- End Schema.org --></head><body data-id="python-regularExpression-reModule" data-main-title="re模块" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="python.md|Python///python-dataAnalysis.md|数据分析"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3> earph0n3's doc  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="python-regularExpression-reModule" id="python-regularExpression-reModule.md">re模块</h1><p id="iuz5uu_3">python使用 <code class="code" id="iuz5uu_7">re</code> 模块来对数据进行正则匹配以及一些操作, 这里介绍一些常用的</p><section class="chapter"><h2 id="re-match" data-toc="re-match">re.match()</h2><p id="iuz5uu_8"><code class="code" id="iuz5uu_16">match</code>方法用用于在开头匹配, 只匹配开头</p><p id="iuz5uu_9">基本用法为</p><div class="code-block" data-lang="python">
+re.match(pattern, string, flags=0)
+</div><p id="iuz5uu_11"><code class="code" id="iuz5uu_17">pattern</code> 参数代表进行匹配的正则表达式, <code class="code" id="iuz5uu_18">string</code> 参数是需要进行匹配的字符串, <code class="code" id="iuz5uu_19">flags</code> 可选</p><p id="iuz5uu_12">匹配成功后返回匹配到的对象, 没有匹配到则返回 <code class="code" id="iuz5uu_20">None</code></p><p id="iuz5uu_13">比如需要匹配一段字符串中的url<code class="code" id="iuz5uu_21">https://www.baidu.com</code>:</p><div class="code-block" data-lang="python">
+# 待匹配的字符串
+str = &quot;http://www.baidu.comfdksjflskjfasdf&quot;
+# 匹配模式
+pattern = r&quot;http://www\.[a-zA-Z0-9-]+\.com&quot;
+# 进行匹配
+url = re.match(pattern, str)
+# 打印对象
+print(url)
+# &lt;re.Match object; span=(0, 20), match='http://www.baidu.com'&gt;
+
+# 打印匹配到的内容
+print(url.group())
+# http://www.baidu.com
+</div><aside class="prompt" data-type="tip" data-title="" id="iuz5uu_15"><p id="iuz5uu_22">如果待匹配的字符串不在原字符串的开头则会直接返回None</p></aside></section><section class="chapter"><h2 id="re-search" data-toc="re-search">re.search()</h2><p id="iuz5uu_23"><code class="code" id="iuz5uu_28">search</code>方法会尝试在整个字符串中寻找待匹配的内容并返回其中的第一个</p><p id="iuz5uu_24">基本用法:</p><div class="code-block" data-lang="python">
+re.search(pattern, string, flags=0)
+</div><p id="iuz5uu_26">参数与 <code class="code" id="iuz5uu_29">match</code> 相同</p><div class="code-block" data-lang="python">
+# 待匹配的内容不在开头
+str = &quot;oiwhjdfolksnhttp://www.baidu.comfdksjflskjfasdf&quot;
+pattern = r&quot;http://www\.[a-zA-Z0-9-]+\.com&quot;
+url = re.search(pattern, str)
+print(url)
+# &lt;re.Match object; span=(12, 32), match='http://www.baidu.com'&gt;
+print(url.group())
+# http://www.baidu.com
+</div></section><section class="chapter"><h2 id="re-findall" data-toc="re-findall">re.findall()</h2><p id="iuz5uu_30"><code class="code" id="iuz5uu_32">findall</code> 用法与前两个基本相同, 不同在于 <code class="code" id="iuz5uu_33">findall</code> 会匹配所有的可能并返回一个列表</p><div class="code-block" data-lang="python">
+# 待匹配的内容有多个
+str = &quot;osnhttp://www.baidu.comfdksjflhttp://www.bing.comskjf&quot;
+pattern = r&quot;http://www\.[a-zA-Z0-9-]+\.com&quot;
+urls = re.findall(pattern, str)
+print(urls)
+# ['http://www.baidu.com', 'http://www.bing.com']
+</div></section><div class="last-modified">Last modified: 04 十一月 2024</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="python-dataanalysis.html" class="navigation-links__prev">数据分析</a><a href="markdown.html" class="navigation-links__next">markdown</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b419/app.js"></script></body></html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2024-11-04T18:33:26.7581833"><title>png高度爆破 |  earph0n3's doc</title><script type="application/json" id="virtual-toc-data">[{"id":"python-bin-op-demo-ihdrStruct","level":0,"title":"IHDR的结构","anchor":"#python-bin-op-demo-ihdrStruct"},{"id":"python-bin-op-demo-crc-calc","level":0,"title":"crc的计算","anchor":"#python-bin-op-demo-crc-calc"},{"id":"hpkhpk_5","level":0,"title":"读取文件信息","anchor":"#hpkhpk_5"},{"id":"hpkhpk_6","level":0,"title":"遍历高度值","anchor":"#hpkhpk_6"},{"id":"crc","level":0,"title":"计算crc","anchor":"#crc"},{"id":"hpkhpk_8","level":0,"title":"整合","anchor":"#hpkhpk_8"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b419/app.css" rel="stylesheet"><link href="static/custom.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="png高度爆破 |  earph0n3's doc"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content=" earph0n3's doc Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/python-bin-op-demo-png-crc-bru.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="png高度爆破 |  earph0n3's doc"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/python-bin-op-demo-png-crc-bru.html#webpage",
+    "url": "writerside-documentation/python-bin-op-demo-png-crc-bru.html",
+    "name": "png高度爆破 |  earph0n3's doc",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": " earph0n3's doc Help"
+}</script><!-- End Schema.org --></head><body data-id="python-bin-op-demo-png-crc-bru" data-main-title="png高度爆破" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="python.md|Python///python-bin-data-op.md|二进制数据操作///python-bin-op-demo.md|demo"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3> earph0n3's doc  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="python-bin-op-demo-png-crc-bru" id="python-bin-op-demo-png-crc-bru.md">png高度爆破</h1><section class="chapter"><h2 id="python-bin-op-demo-ihdrStruct" data-toc="python-bin-op-demo-ihdrStruct">IHDR的结构</h2><p id="hpkhpk_9">png图片的各种基础信息保留在 <code class="code" id="hpkhpk_14">IHDR</code> 块中, <code class="code" id="hpkhpk_15">IHDR</code> 块的数据部分长度固定为 <code class="code" id="hpkhpk_16">13</code> 个字节, 整个数据的分布如下:</p><div class="table-wrapper"><table class="wide" id="hpkhpk_10"><thead><tr class="ijRowHead" id="hpkhpk_17"><th id="hpkhpk_27"><p>字段名称</p></th><th id="hpkhpk_28"><p>字段长度（字节）</p></th><th id="hpkhpk_29"><p>描述及取值范围</p></th></tr></thead><tbody><tr id="hpkhpk_18"><td id="hpkhpk_30"><p>length</p></td><td id="hpkhpk_31"><p>4</p></td><td id="hpkhpk_32"><p>IHDR数据块的长度, 固定为13字节</p></td></tr><tr id="hpkhpk_19"><td id="hpkhpk_33"><p>type</p></td><td id="hpkhpk_34"><p>4</p></td><td id="hpkhpk_35"><p>IHDR的标志, 固定为字符串 &quot;IHDR&quot;</p></td></tr><tr id="hpkhpk_20"><td id="hpkhpk_36"><p>Width</p></td><td id="hpkhpk_37"><p>4</p></td><td id="hpkhpk_38"><p>图像的宽度，单位为像素</p></td></tr><tr id="hpkhpk_21"><td id="hpkhpk_39"><p>Height</p></td><td id="hpkhpk_40"><p>4</p></td><td id="hpkhpk_41"><p>图像的高度，单位为像素</p></td></tr><tr id="hpkhpk_22"><td id="hpkhpk_42"><p>Bit depth</p></td><td id="hpkhpk_43"><p>1</p></td><td id="hpkhpk_44"><p>图像的位深度，即每个颜色通道的比特数</p></td></tr><tr id="hpkhpk_23"><td id="hpkhpk_45"><p>Color type</p></td><td id="hpkhpk_46"><p>1</p></td><td id="hpkhpk_47"><p>图像的颜色类型</p></td></tr><tr id="hpkhpk_24"><td id="hpkhpk_48"><p>Compression method</p></td><td id="hpkhpk_49"><p>1</p></td><td id="hpkhpk_50"><p>图像的压缩方法</p></td></tr><tr id="hpkhpk_25"><td id="hpkhpk_51"><p>Filter method</p></td><td id="hpkhpk_52"><p>1</p></td><td id="hpkhpk_53"><p>图像的滤波器方法</p></td></tr><tr id="hpkhpk_26"><td id="hpkhpk_54"><p>Interlace method</p></td><td id="hpkhpk_55"><p>1</p></td><td id="hpkhpk_56"><p>图像的扫描方法</p></td></tr></tbody></table></div><p id="hpkhpk_11">一个完整的 <code class="code" id="hpkhpk_57">IHDR</code> 块还会在末尾加上一个四字节的 <code class="code" id="hpkhpk_58">crc</code>, 在010中查看是这样的(整个chunk[0]):</p><figure id="hpkhpk_12"><img alt="image-20241022134540382.png" src="https://s2.loli.net/2024/10/22/wz9kPANfQYOE6n7.png" class="article__bordered-element--rounded" title="image-20241022134540382.png"></figure><p id="hpkhpk_13"><code class="code" id="hpkhpk_59">IHDR</code> 之前的是文件头, 占8个字节</p></section><section class="chapter"><h2 id="python-bin-op-demo-crc-calc" data-toc="python-bin-op-demo-crc-calc">crc的计算</h2><p id="hpkhpk_60">整个 <code class="code" id="hpkhpk_62">IHDR</code> 块最后的 crc 值 是直接通过 <code class="code" id="hpkhpk_63">type</code> 到 <code class="code" id="hpkhpk_64">Interlace method</code> 这一段数据计算得到的</p><p id="hpkhpk_61">可以通过调用 <code class="code" id="hpkhpk_65">zlib</code> 模块的 <code class="code" id="hpkhpk_66">zlib.crc32(data)</code> 来完成计算, 也就是说可以通过遍历整个数据段, 爆破高度值并计算crc来与最后的 crc进行对比</p></section><section class="chapter"><h2 id="hpkhpk_5" data-toc="hpkhpk_5">读取文件信息</h2><p id="hpkhpk_67">使用 <code class="code" id="hpkhpk_69">with open</code> 打开文件, 并用 <code class="code" id="hpkhpk_70">read</code> 逐步读取对应的字节数并将其打印出来</p><div class="code-collapse" data-lang="python" data-is-expanded="false" data-synopsis="读取png文件内容并打印对应信息">
+# 获得png图片的路径
+png_path = input(&quot;输入png图片的路径:&quot;)
+
+# 打开图片
+with open(png_path, 'rb') as f:
+    # 文件头
+    head = f.read(8)
+    print(f&quot;文件头: \t\t\t{head}&quot;)
+    
+    # length
+    ihdr_length = f.read(4)
+    print(f&quot;length字段: \t\t\t{ihdr_length}&quot;)
+
+    # type
+    ihdr_type = f.read(4)
+    print(f&quot;type字段: \t\t\t{ihdr_type}&quot;)
+
+    # width
+    width = f.read(4)
+    print(f&quot;width字段: \t\t\t{width}&quot;)
+
+    # height
+    height = f.read(4)
+    print(f&quot;height字段: \t\t\t{height}&quot;)
+
+    # bit_depth
+    bit_depth = f.read(1)
+    print(f&quot;bit_depth字段: \t\t\t{bit_depth}&quot;)
+
+    # color_type
+    color_type = f.read(1)
+    print(f&quot;color_type字段: \t\t{color_type}&quot;)
+
+    # compression_method
+    compression_method = f.read(1)
+    print(f&quot;compression_method字段: \t{compression_method}&quot;)
+
+    # filter_method
+    filter_method = f.read(1)
+    print(f&quot;filter_method字段: \t\t{filter_method}&quot;)
+
+    # interlace_method
+    interlace_method = f.read(1)
+    print(f&quot;interlace_method字段: \t\t{interlace_method}&quot;)
+    
+    # crc
+    crc = f.read(4)
+    print(f&quot;crc的值: {crc}&quot;)
+</div></section><section class="chapter"><h2 id="hpkhpk_6" data-toc="hpkhpk_6">遍历高度值</h2><p id="hpkhpk_71">使用for循环遍历高度并组成新的ihdr块:</p><div class="code-block" data-lang="python">
+for new_height in range(1000):
+    # 将整型打包为字节
+    new_height = struct.pack(&quot;&gt;I&quot;, new_height)
+    # 拼接成新的ihdr
+    ihdr = (head +
+            ihdr_length +
+            ihdr_type +
+            width +
+            new_height +
+            bit_depth +
+            color_type +
+            compression_method +
+            filter_method +
+            interlace_method)
+    print(ihdr)
+</div></section><section class="chapter"><h2 id="crc" data-toc="crc">计算crc</h2><div class="code-block" data-lang="python">
+# 使用zlib的crc32方法计算crc
+new_crc = zlib.crc32() # 返回的是整数
+# 使用pack进行打包
+new_crc = struct.pack(&quot;&gt;I&quot;, new_crc)
+# 判断计算的crc是否等于原来的
+if new_crc == crc:
+    print(new_crc)
+    break
+else:
+    pass
+</div></section><section class="chapter"><h2 id="hpkhpk_8" data-toc="hpkhpk_8">整合</h2><p id="hpkhpk_74">将前面的代码整合起来得到:</p><div class="code-collapse" data-lang="python" data-is-expanded="false" data-synopsis="整合后的脚本">
+import struct
+import zlib
+
+# 获得png图片的路径
+png_path = input(&quot;输入png图片的路径:&quot;)
+
+# 打开图片
+with open(png_path, 'rb') as f:
+	print(&quot;读取文件信息......&quot;)
+	# 文件头
+	head = f.read(8)
+	print(f&quot;文件头: \t\t\t{head}&quot;)
+	
+	# length
+	ihdr_length = f.read(4)
+	print(f&quot;length字段: \t\t\t{ihdr_length}&quot;)
+	
+	# type
+	ihdr_type = f.read(4)
+	print(f&quot;type字段: \t\t\t{ihdr_type}&quot;)
+	
+	# width
+	width = f.read(4)
+	print(f&quot;width字段: \t\t\t{width}&quot;)
+	
+	# height
+	height = f.read(4)
+	print(f&quot;height字段: \t\t\t{height}&quot;)
+	
+	# bit_depth
+	bit_depth = f.read(1)
+	print(f&quot;bit_depth字段: \t\t\t{bit_depth}&quot;)
+	
+	# color_type
+	color_type = f.read(1)
+	print(f&quot;color_type字段: \t\t{color_type}&quot;)
+	
+	# compression_method
+	compression_method = f.read(1)
+	print(f&quot;compression_method字段: \t{compression_method}&quot;)
+	
+	# filter_method
+	filter_method = f.read(1)
+	print(f&quot;filter_method字段: \t\t{filter_method}&quot;)
+	
+	# interlace_method
+	interlace_method = f.read(1)
+	print(f&quot;interlace_method字段: \t\t{interlace_method}&quot;)
+	
+	# crc
+	crc = f.read(4)
+	print(f&quot;crc的值: {crc}\n&quot;)
+	
+	print(&quot;爆破高度.....&quot;)
+	# 假定高度是0-999
+	for new_height in range(1000):
+		# 将整型打包为字节
+		new_height = struct.pack(&quot;&gt;I&quot;, new_height)
+		# 拼接成新的ihdr
+		ihdr = (ihdr_type +
+		        width +
+		        new_height +
+		        bit_depth +
+		        color_type +
+		        compression_method +
+		        filter_method +
+		        interlace_method)
+		# 使用zlib的crc32方法计算crc
+		new_crc = zlib.crc32(ihdr)
+		new_crc = struct.pack(&quot;&gt;I&quot;, new_crc)
+		if new_crc == crc:
+			print(&quot;计算得到的crc:&quot;, new_crc.hex())
+			print(&quot;原来的高度是:&quot;, height.hex())
+			break
+		else:
+			pass
+</div></section><div class="last-modified">Last modified: 04 十一月 2024</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="python-bin-op-demo.html" class="navigation-links__prev">demo</a><a href="python-regularexpression.html" class="navigation-links__next">正则表达式</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b419/app.js"></script></body></html>

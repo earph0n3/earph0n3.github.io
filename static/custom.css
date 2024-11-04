@@ -5,9 +5,14 @@
 
 /* 一些定义 */
 :root {
+    /* 分割线 */
     --rs-color-grey-80:rgba(255, 255, 255, .3);
-    --rs-color-white-t5: rgba(0, 0, 0, 0.3);
+    /* 整个灰色的灰度 */
+    --rs-color-white-t5: rgba(0, 0, 0, 0.5);
+    /* 左栏目录字体大小 */
+    --rs-text-3-font-size: 15px;
 }
+
 
 /* 顶栏的字体 */
 .wh-header__product-name {
@@ -85,4 +90,25 @@ body {
 
 .layout--container {
     background: rgba(0, 0, 0, 10%)
+}
+
+html.theme-dark #mermaid .cluster rect {
+    fill: rgba(47, 49, 49, 0.3);
+    stroke: hsla(0, 0%, 100%, .25);
+    stroke-width: 1px;
+}
+
+html.theme-dark #mermaid .actor {
+    stroke: #81b1db;
+    fill: rgba(0, 0, 0, 0.4);
+}
+
+html.theme-dark #mermaid .node circle, html.theme-dark #mermaid .node ellipse, html.theme-dark #mermaid .node path, html.theme-dark #mermaid .node polygon, html.theme-dark #mermaid .node rect {
+    fill: rgba(0, 0, 0, 0.4);
+    stroke: #81b1db;
+    stroke-width: 1px;
+}
+
+html.theme-dark #mermaid .edgeLabel .label span {
+    background: rgba(0, 0, 0, 0.4);
 }

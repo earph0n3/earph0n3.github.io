@@ -1,0 +1,41 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2024-11-04T18:33:26.8314688"><title>struct模块 |  earph0n3's doc</title><script type="application/json" id="virtual-toc-data">[{"id":"struct-pack-format-data","level":0,"title":"struct.pack(format, data)","anchor":"#struct-pack-format-data"},{"id":"struct-unpack-format-data","level":0,"title":"struct.unpack(format, data)","anchor":"#struct-unpack-format-data"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b419/app.css" rel="stylesheet"><link href="static/custom.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="struct模块 |  earph0n3's doc"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content=" earph0n3's doc Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/python-bin-data-op-struct-module.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="struct模块 |  earph0n3's doc"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/python-bin-data-op-struct-module.html#webpage",
+    "url": "writerside-documentation/python-bin-data-op-struct-module.html",
+    "name": "struct模块 |  earph0n3's doc",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": " earph0n3's doc Help"
+}</script><!-- End Schema.org --></head><body data-id="python-bin-data-op-struct-module" data-main-title="struct模块" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="python.md|Python///python-bin-data-op.md|二进制数据操作"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3> earph0n3's doc  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="python-bin-data-op-struct-module" id="python-bin-data-op-struct-module.md">struct模块</h1><p id="-4wymzt_3">在python中, 提供了 <code class="code" id="-4wymzt_9">struct</code> 模块来与二进制数据进行交互以及操作</p><p id="-4wymzt_4">使用时需要导入模块后使用:</p><div class="code-block" data-lang="python">
+import struct
+</div><p id="-4wymzt_6">这里介绍几个常用方法, 后面会用到:</p><section class="chapter"><h2 id="struct-pack-format-data" data-toc="struct-pack-format-data">struct.pack(format, data)</h2><p id="-4wymzt_10"><code class="code" id="-4wymzt_15">struct.pack()</code> 方法能够将 <code class="code" id="-4wymzt_16">data</code> 以 <code class="code" id="-4wymzt_17">format</code> 的格式打包成二进制数据</p><p id="-4wymzt_11">其中 <code class="code" id="-4wymzt_18">format</code> 的可选项有:</p><div class="table-wrapper"><table class="wide" id="-4wymzt_12"><thead><tr class="ijRowHead" id="-4wymzt_19"><th id="-4wymzt_25"><p>字符</p></th><th id="-4wymzt_26"><p>字节顺序</p></th><th id="-4wymzt_27"><p>大小</p></th><th id="-4wymzt_28"><p>对齐方式</p></th></tr></thead><tbody><tr id="-4wymzt_20"><td id="-4wymzt_29"><p><code class="code" id="-4wymzt_33">@</code></p></td><td id="-4wymzt_30"><p>按原字节</p></td><td id="-4wymzt_31"><p>按原字节</p></td><td id="-4wymzt_32"><p>按原字节</p></td></tr><tr id="-4wymzt_21"><td id="-4wymzt_34"><p><code class="code" id="-4wymzt_38">=</code></p></td><td id="-4wymzt_35"><p>按原字节</p></td><td id="-4wymzt_36"><p>标准</p></td><td id="-4wymzt_37"><p>无</p></td></tr><tr id="-4wymzt_22"><td id="-4wymzt_39"><p><code class="code" id="-4wymzt_43">&lt;</code></p></td><td id="-4wymzt_40"><p>小端</p></td><td id="-4wymzt_41"><p>标准</p></td><td id="-4wymzt_42"><p>无</p></td></tr><tr id="-4wymzt_23"><td id="-4wymzt_44"><p><code class="code" id="-4wymzt_48">&gt;</code></p></td><td id="-4wymzt_45"><p>大端</p></td><td id="-4wymzt_46"><p>标准</p></td><td id="-4wymzt_47"><p>无</p></td></tr><tr id="-4wymzt_24"><td id="-4wymzt_49"><p><code class="code" id="-4wymzt_53">!</code></p></td><td id="-4wymzt_50"><p>网络（=大端）</p></td><td id="-4wymzt_51"><p>标准</p></td><td id="-4wymzt_52"><p>无</p></td></tr></tbody></table></div><div class="code-block" data-lang="python">
+data = 123456
+
+packed_data = struct.pack(&quot;&gt;I&quot;, data)
+
+print(packed_data)
+# 结果是 b'\x00\x01\xe2@'
+</div><p id="-4wymzt_14">这里尝试将 <code class="code" id="-4wymzt_54">123456</code> 以整数形式打包为大端序四字节二进制数据, 结果应该是 <code class="code" id="-4wymzt_55">b'\x00\x01\xe2\x40'</code>, 这里print自动把 <code class="code" id="-4wymzt_56">\x40</code> 解码成 <code class="code" id="-4wymzt_57">@</code> 了,不用管</p></section><section class="chapter"><h2 id="struct-unpack-format-data" data-toc="struct-unpack-format-data">struct.unpack(format, data)</h2><p id="-4wymzt_58"><code class="code" id="-4wymzt_63">struct.unpack()</code> 方法能将二进制数据解包成对应的数据, 参数的用法与 <code class="code" id="-4wymzt_64">pack</code> 一致,</p><p id="-4wymzt_59">其返回值是一个<code class="code" id="-4wymzt_65">元组</code> (因为unpack的设计初衷是解包多个数据, 哪怕只解包一个数据 )</p><p id="-4wymzt_60">比如我们需要将上面打包的二进制数据进行解包, 得到原来的 <code class="code" id="-4wymzt_66">123456</code></p><div class="code-block" data-lang="python">
+data = b'\x00\x01\xe2@'
+
+data_unpacked = struct.unpack(&quot;&gt;I&quot;, data)
+
+print(data_unpacked)
+# 结果是 (123456,)
+
+print(data_unpacked[0])
+# 结果是 123456
+</div><aside class="prompt" data-type="tip" data-title="" id="-4wymzt_62"><p id="-4wymzt_67">由于 <code class="code" id="-4wymzt_69">struct</code> 只能处理字节对象, 所以在解包和打包时输入的 <code class="code" id="-4wymzt_70">data</code> 必须是字节类型 也就是说在解包和打包字符串时必须将其转换为相应的字节类型, 比如:</p><div class="code-block" data-lang="python">
+data = &quot;123456&quot; # 字符串的123456
+data_byte = data.encode(&quot;utf-8&quot;)
+
+data = struct.pack(&quot;6s&quot;, data_byte) 
+print(data)
+</div></aside></section><div class="last-modified">Last modified: 04 十一月 2024</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="python-bin-data-op.html" class="navigation-links__prev">二进制数据操作</a><a href="python-bin-op-demo.html" class="navigation-links__next">demo</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b419/app.js"></script></body></html>
